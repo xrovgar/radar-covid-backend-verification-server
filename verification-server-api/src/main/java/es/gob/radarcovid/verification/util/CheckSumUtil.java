@@ -28,8 +28,12 @@ public class CheckSumUtil {
 
     public static boolean validateChecksum(String validationCode) {
         // Sample code - returns if code is correct
-        int last = Character.getNumericValue(validationCode.charAt(validationCode.length() - 1));
-        int checksum = checkSum(validationCode.substring(0, validationCode.length() - 1));
+        int last;
+        int checksum;
+        if (validationCode != null) {
+            last = Character.getNumericValue(validationCode.charAt(validationCode.length() - 1));
+            checksum = checkSum(validationCode.substring(0, validationCode.length() - 1));
+        }
         return last == checksum;
     }
 
